@@ -4,8 +4,8 @@
 2. A node means a server in Kubernetes.
 3. A cluster means a number of servers coupled together. In Kubernetes, there should be at least 2 nodes in a cluster:
 
-i.  Master Node
-It is the main node in Kubernetes which does the administration part, it runs kubeadm. Kubeadm performs the actions necessary to get a minimum viable cluster up and running quickly. 
+**i.  Master Node**
+It is the main node in Kubernetes which does the administration part, it runs **kubeadm**. Kubeadm performs the actions necessary to get a minimum viable cluster up and running quickly. 
 
-ii. worker node
-
+**ii. Worker Node**
+Worker nodes are servers that run the workloads. Workload means containerized apps running in the production.
