@@ -82,9 +82,10 @@ I won't be going into the details, but "migctl" command is used to migrate the w
 -rw------- 1 root root 3520 Dec 19 04:02 kube-controller-manager.yaml
 -rw------- 1 root root 1440 Dec 19 04:02 kube-scheduler.yaml
 
-kubectl config view 
-kubectl get pods
-kubectl get pods my-pod-name
-kubectl get nodes
+1. kubectl config view
+2. kubectl get pods
+3. kubectl get pods my-pod-name
+4. kubectl get nodes  
+
 ![image](https://user-images.githubusercontent.com/21220549/208919735-bcd954e3-4c6d-448a-8973-470df9c9f424.png)
 
