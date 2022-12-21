@@ -55,5 +55,8 @@ The cluster has been created with 3-nodes in one zone.
 
 We can see that the control plane node and the worker nodes are in the same zone. 
 
-![image](https://user-images.githubusercontent.com/21220549/208887844-5858d393-cc24-40b7-8f43-53786efef183.png)
+## Attach to a Pod
 
+Go to the kubectl option, you will see the exec ====> nginx-1. We will be connected to the pod.
+
+![image](https://user-images.githubusercontent.com/21220549/208887844-5858d393-cc24-40b7-8f43-53786efef183.png)
