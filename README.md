@@ -29,3 +29,10 @@ It is a Kubernetes tool that allows users to run the commands inside the Kuberne
 
 A Kubernetes tool for containers network and data exchange.
 
+1. Create a Kubernetes Cluster:
+
+![image](https://user-images.githubusercontent.com/21220549/208852432-6fbd8328-3566-4d20-91ad-786936263c74.png)
+
+If we select Zonal, the control plane [which manages the worker nodes and the Pods in the cluster] and nodes run in a single zone. We can select more replica zones, however, it'll increase the costs. 
+
+Cluster region can not be changed once its created. By default, a regional cluster replicates the control plane and worker nodes across three zones.
