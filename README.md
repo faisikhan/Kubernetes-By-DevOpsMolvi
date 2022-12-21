@@ -89,3 +89,11 @@ I won't be going into the details, but "migctl" command is used to migrate the w
 
 ![image](https://user-images.githubusercontent.com/21220549/208919735-bcd954e3-4c6d-448a-8973-470df9c9f424.png)
 
+1. kubectl create deployment my-deployment --image nginx:latest --port 8088    =============> A new deployment will be created with one replicaset.
+2. kubectl get deployment
+3. kubectl describe deployment my-deployment
+
+![image](https://user-images.githubusercontent.com/21220549/208929979-579094e5-955c-46bf-8ceb-d8d6b3faadb9.png)
+
+4. kubectl delete deployment my-deployment    =============> It will delete the deployment.
+5. 
