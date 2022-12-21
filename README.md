@@ -60,3 +60,13 @@ We can see that the control plane node and the worker nodes are in the same zone
 Go to the kubectl option, you will see the exec ====> nginx-1. We will be connected to the pod.
 
 ![image](https://user-images.githubusercontent.com/21220549/208887844-5858d393-cc24-40b7-8f43-53786efef183.png)
+
+## Migrate for Anthos
+
+Moves your current workloads/apps to GCP Kubernetes. The workloads can be on your physical datacenter or other cloud providers like Azure and AWS.
+
+That's how the process should work while we use the migration using Anthos:
+
+![image](https://user-images.githubusercontent.com/21220549/208912157-916b3bc1-efcb-4d5e-b9bb-62921ca8ac8b.png)
+
+I won't be going into the details, but "migctl" command is used to migrate the workloads to Anthos.
