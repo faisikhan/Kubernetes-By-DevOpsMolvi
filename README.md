@@ -10,6 +10,10 @@ It is the main node in Kubernetes which does the administration part, it runs **
 **ii. Worker Node**
 Worker nodes are servers that run the workloads. Workload means containerized apps running in the production.
 
+## Control Plane
+
+In simple words, the Kubernetes API Server is known as the Control Plane.
+
 Good tutorial to install Kubernetes on Ubuntu:
 https://www.cloudsigma.com/how-to-install-and-use-kubernetes-on-ubuntu-20-04/
 
@@ -44,3 +48,12 @@ A node pools is a group of VMs, servers we can say in the same zone. In a single
 **With the default maximum of 110 Pods per node for Standard clusters, Kubernetes assigns a /24 CIDR block (256 addresses) to each of the nodes.**
 
 ![image](https://user-images.githubusercontent.com/21220549/208859009-c2f96986-fe95-4aa6-bce4-c96450da375f.png)
+
+The cluster has been created with 3-nodes in one zone.
+
+![image](https://user-images.githubusercontent.com/21220549/208883877-588d77ff-af39-4d37-8d4e-fd68632ba3a6.png)
+
+We can see that the control plane node and the worker nodes are in the same zone. 
+
+![image](https://user-images.githubusercontent.com/21220549/208887844-5858d393-cc24-40b7-8f43-53786efef183.png)
+
