@@ -27,7 +27,7 @@ Simply we can say, it is the Kubernetes system administrator. It initializes and
 
 ## kubectl
 
-It is a Kubernetes tool that allows users to run the commands inside the Kubernetes clusters.
+It is a Kubernetes tool that allows users to run the commands inside the Kubernetes clusters. It communicates with your API server.
 
 ## kubernetes-cni
 
@@ -70,3 +70,5 @@ That's how the process should work while we use the migration using Anthos:
 ![image](https://user-images.githubusercontent.com/21220549/208912157-916b3bc1-efcb-4d5e-b9bb-62921ca8ac8b.png)
 
 I won't be going into the details, but "migctl" command is used to migrate the workloads to Anthos.
+
+![image](https://user-images.githubusercontent.com/21220549/208914811-ffd68784-b73a-46b1-87a7-d852e4600db0.png)
