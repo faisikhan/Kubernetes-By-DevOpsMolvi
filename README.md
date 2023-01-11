@@ -96,4 +96,3 @@ I won't be going into the details, but "migctl" command is used to migrate the w
 ![image](https://user-images.githubusercontent.com/21220549/208929979-579094e5-955c-46bf-8ceb-d8d6b3faadb9.png)
 
 4. kubectl delete deployment my-deployment    =============> It will delete the deployment.
-5. 
