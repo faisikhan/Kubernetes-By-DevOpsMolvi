@@ -6,3 +6,11 @@ sed -i '/swap/d' /etc/fstab
 
 The above command will remove the swap entry from /etc/fstab 
 
+## Install Containerd
+
+The following tutorial will help to install containerd.
+
+https://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/install-containerd-on-ubuntu-22-04.html
+
+===>  kube-apiserver which is one of Kubernetes components uses port 6443 too.
+
