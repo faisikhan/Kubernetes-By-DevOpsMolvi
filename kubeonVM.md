@@ -42,4 +42,13 @@ In case of any issues, follow the following link: https://stackoverflow.com/ques
 
 ![image](https://user-images.githubusercontent.com/21220549/221897582-a3a1fa58-fee1-40f1-8b71-c120a13928ce.png)
 
+This is for services to be accessible on my local windows system:
 ![image](https://user-images.githubusercontent.com/21220549/222120187-937e3868-f39e-4837-929c-3ad141a3db5c.png)
+
+20. In order to list all the pods on master node:
+
+ kubectl get pods -n kube-system
+
+![image](https://user-images.githubusercontent.com/21220549/222126970-e70a4270-5c52-41b2-a37b-164a42ff5890.png)
+
+21. 
