@@ -53,3 +53,9 @@ kubectl get pods --all-namespaces
 
 ![image](https://user-images.githubusercontent.com/21220549/222368243-5afde9e1-97ff-4173-adb4-8405d661e12b.png)
 
+21. kubectl get nodes -o wide
+22. kubectl get pods --all-namespaces -o wide
+
+![image](https://user-images.githubusercontent.com/21220549/222374135-e2fc6717-06ad-4d4e-bd5c-0b19e03eefca.png)
+
+
