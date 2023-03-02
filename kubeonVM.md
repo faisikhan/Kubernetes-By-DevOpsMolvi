@@ -47,8 +47,7 @@ This is for services to be accessible on my local windows system:
 
 20. In order to list all the pods on master node:
 
- kubectl get pods -n kube-system
+kubectl get pods --all-namespaces
 
 ![image](https://user-images.githubusercontent.com/21220549/222126970-e70a4270-5c52-41b2-a37b-164a42ff5890.png)
 
-21. 
