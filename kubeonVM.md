@@ -58,4 +58,8 @@ kubectl get pods --all-namespaces
 
 ![image](https://user-images.githubusercontent.com/21220549/222374135-e2fc6717-06ad-4d4e-bd5c-0b19e03eefca.png)
 
+23. Create a simple Nginx pod with the following command:
+kubectl run nginx --image=nginx --restart=Never
 
+24. kubectl describe pod nginx        ===========>    It will show the details of our pod.
+25. 
