@@ -86,4 +86,4 @@ Execute the following commands for kubectl autocomplete. It is strongly recommen
 
 ![image](https://user-images.githubusercontent.com/21220549/223710615-2e6ee76c-5aa8-4287-9152-ff9211d5989e.png)
   
-6. 
+7.kubectl describe pods nginx-server
