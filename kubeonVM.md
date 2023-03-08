@@ -62,4 +62,17 @@ kubectl get pods --all-namespaces
 kubectl run nginx --image=nginx --restart=Never
 
 24. kubectl describe pod nginx        ===========>    It will show the details of our pod.
-25. 
+
+## Kubectl autocomplete
+
+Execute the following commands for kubectl autocomplete. It is strongly recommended for quick learning.
+
+1. source <(kubectl completion bash)
+2. echo "source <(kubectl completion bash)" >> ~/.bashrc
+3. alias k=kubectl
+4. complete -o default -F __start_kubectl k
+5. kubectl -A        ===========>    Used for appending --all-namespaces.
+
+
+
+
