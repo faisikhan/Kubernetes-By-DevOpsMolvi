@@ -73,6 +73,17 @@ Execute the following commands for kubectl autocomplete. It is strongly recommen
 4. complete -o default -F __start_kubectl k
 5. kubectl -A        ===========>    Used for appending --all-namespaces.
 
+![image](https://user-images.githubusercontent.com/21220549/223702236-5d84944e-15d1-4ad1-91c1-aa7746585e63.png)
 
+## Kubectl Cheat Sheet
 
+1. kubectl get services        ===========>    It'll list all services.
+2. kubectl get pods -o wide        ===========>    It'll list all pods with more details in the current namespace.
+3. kubectl get pod nginx-server -o json        ===========>  Get a pod's detailed information in JSON.  
+4. kubectl get pod nginx-server -o yaml        ===========>  Get a pod's detailed information in YAML.
+5. kubectl describe nodes        ===========>  You'll see all info about the master and worker nodes. Like below:
+6. kubectl describe nodes k8s-master        ===========>  It'll show the details of the master node. Similarly, change the node name for other nodes information.
 
+![image](https://user-images.githubusercontent.com/21220549/223710615-2e6ee76c-5aa8-4287-9152-ff9211d5989e.png)
+  
+6. 
