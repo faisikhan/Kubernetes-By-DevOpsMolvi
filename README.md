@@ -2,6 +2,7 @@
 2. cp -i k8s-escluster-kubeconfig.yaml $HOME/.kube/config
 3. chown $(id -u):$(id -g) $HOME/.kube/config
 4. kubectl config view
+5. kubectl exec -it elasticsearch-0 -- /bin/bash
 
 # Kubernetes
 
