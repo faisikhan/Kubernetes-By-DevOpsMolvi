@@ -1,7 +1,7 @@
-mkdir $HOME/.kube
-cp -i k8s-escluster-kubeconfig.yaml $HOME/.kube/config
-chown $(id -u):$(id -g) $HOME/.kube/config
-kubectl config view
+1. mkdir $HOME/.kube
+2. cp -i k8s-escluster-kubeconfig.yaml $HOME/.kube/config
+3. chown $(id -u):$(id -g) $HOME/.kube/config
+4. kubectl config view
 
 # Kubernetes
 
