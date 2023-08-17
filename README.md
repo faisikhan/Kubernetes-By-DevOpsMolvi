@@ -1,3 +1,8 @@
+mkdir $HOME/.kube
+cp -i k8s-escluster-kubeconfig.yaml $HOME/.kube/config
+chown $(id -u):$(id -g) $HOME/.kube/config
+kubectl config view
+
 # Kubernetes
 
 1. One of the most popular tools for container orchestration.
