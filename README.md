@@ -3,6 +3,10 @@
 3. chown $(id -u):$(id -g) $HOME/.kube/config
 4. kubectl config view
 5. kubectl exec -it elasticsearch-0 -- /bin/bash
+6. kubectl delete pods --all -n faisal-elasticsearch --force
+7. kubectl delete statefulsets es-cluster --namespace=faisal-elasticsearch
+8. kubectl rollout status sts/es-cluster --namespace=faisal-elasticsearch
+
 
 # Kubernetes
 
