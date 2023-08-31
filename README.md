@@ -7,6 +7,7 @@
 7. kubectl delete statefulsets es-cluster --namespace=faisal-elasticsearch
 8. kubectl rollout status sts/es-cluster --namespace=faisal-elasticsearch
 9. kubectl get pvc -n faisal-elasticsearch
+10. kubectl get all --all-namespaces -o yaml > all-resources.yaml
 
 ![image](https://github.com/faisikhan/kubernetes/assets/21220549/94469fda-160b-4e89-ab9f-fc839112054b)
 
