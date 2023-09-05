@@ -12,6 +12,7 @@
 12. kubectl describe svc -n faisal-es elasticsearch
 13. kubectl apply -f es-main-cluster.yaml -n faisal-es
 14. watch kubectl get pods -n faisal-es
+15. curl -X GET -k -u elastic:nm43k342hfjed http://139.59.160.220:30315
 
 ![image](https://github.com/faisikhan/kubernetes/assets/21220549/94469fda-160b-4e89-ab9f-fc839112054b)
 
