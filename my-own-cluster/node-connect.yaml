@@ -1,0 +1,18 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: 3BHQ1NxR1NJYEU0MENzUUThzWW9hTm9ZSEhRWERkRXV3WTNwbXZhVXFURjl1UT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    server: https://15012983-52e9-47d6-b632-ccda0efbf729.k8s.ondigitalocean.com
+  name: do-lon1-faisal-3node-es
+contexts:
+- context:
+    cluster: do-lon1-faisal-3node-es
+    user: do-lon1-faisal-3node-es-admin
+  name: do-lon1-faisal-3node-es
+current-context: do-lon1-faisal-3node-es
+kind: Config
+preferences: {}
+users:
+- name: do-lon1-faisal-3node-es-admin
+  user:
+    token: dop_v1_657456743674657456745674574567456745674567ec182
