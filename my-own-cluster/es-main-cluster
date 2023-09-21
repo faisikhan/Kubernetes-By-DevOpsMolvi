@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: es-cluster
+  namespace: faisal-es
+spec:
+  serviceName: es-cluster
+  replicas: 3
+  selector:
+    matchLabels:
+      app: es-cluster
+  template:
+    metadata:
+      labels:
+        app: es-cluster
+    spec:
+      containers:
+      - name: es-container
+        image: sysadmins1/esclusterk8
+        imagePullPolicy: Always
+        resources:
+            limits:
+              cpu: 1000m
+            requests:
+              cpu: 100m
+        ports:
+        - containerPort: 9200
+          name: rest
+          protocol: TCP
+        - containerPort: 9300
+          name: inter-node
+          protocol: TCP
+        volumeMounts:
+        - name: data
+          mountPath: /usr/share/elasticsearch/data
+        env:
+          - name: cluster.name
+            value: Managed-ES-Cluster
+          - name: network.host
+            value: 0.0.0.0
+          - name: node.name
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: discovery.seed_hosts
+            value: es-cluster-0.es-cluster,es-cluster-1.es-cluster,es-cluster-2.es-cluster
+          - name: cluster.initial_master_nodes
+            value: es-cluster-0,es-cluster-1,es-cluster-2
+          - name: ES_JAVA_OPTS
+            value: -Xms512m -Xmx512m
+          - name: xpack.security.enabled
+            value: "false"
+          - name: ELASTIC_USERNAME
+            value: elastic
+          - name: ELASTIC_PASSWORD
+            value: nm43k342hfjed
+          - name: http.cors.enabled
+            value: "true"
+          - name: http.cors.allow-origin
+            value: '*'
+          - name: http.cors.allow-methods
+            value: OPTIONS, HEAD, GET, POST, PUT, DELETE
+          - name: http.cors.allow-headers
+            value: Authorization,X-Requested-With,X-Auth-Token,Content-Type,Content-Length
+          - name: http.cors.allow-credentials
+            value: "true"
+
+      initContainers:
+      - name: fix-permissions
+        image: busybox
+        command: ["sh", "-c", "chown -R 1000:1000 /usr/share/elasticsearch/data"]
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: data
+          mountPath: /usr/share/elasticsearch/data
+      - name: increase-vm-max-map
+        image: busybox
+        command: ["sysctl", "-w", "vm.max_map_count=262144"]
+        securityContext:
+          privileged: true
+      - name: increase-fd-ulimit
+        image: busybox
+        command: ["sh", "-c", "ulimit -n 65536"]
+        securityContext:
+          privileged: true
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+      labels:
+        app: es-service
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: do-block-storage
+      resources:
+        requests:
+          storage: 10Gi
