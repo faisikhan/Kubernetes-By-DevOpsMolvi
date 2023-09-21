@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: es-cluster
+  namespace: faisal-es
+  labels:
+    app: es-cluster
+spec:
+  selector:
+    app: es-cluster
+  type: NodePort
+  ports:
+    - port: 9200
+      targetPort: 9200
+      nodePort: 30315
+      protocol: TCP
+      name: rest
+    - port: 9300
+      name: inter-node
