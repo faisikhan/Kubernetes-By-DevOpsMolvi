@@ -22,6 +22,10 @@ Now in order to install Minikube, run the following commands:
 
 `minikube status`
 
+`sudo snap install kubectl --classic`
+
+`kubectl version --client`
+
 The Minikube is installed :)
 
 # How to Install kubectl?
