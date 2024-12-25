@@ -34,3 +34,21 @@ The kubectl is a CLI used to interact with Kubernetes Clusters. We will use it t
 
 `echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list`
 
+# Running few kubectl commands
+
+`kubectl cluster-info`
+
+`kubectl config view`
+
+`kubectl get nodes`
+
+`kubectl get pods`
+
+# Deploy NGINX web server on Minikube
+
+`kubectl create deployment devops-web --image=nginx:latest`
+
+`kubectl get deployment`
+
+`kubectl get pods`
+
