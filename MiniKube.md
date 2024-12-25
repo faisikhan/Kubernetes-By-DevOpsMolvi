@@ -1,1 +1,1 @@
-**# How to Install Minikube?**
+**How to Install Minikube?**
