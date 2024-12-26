@@ -26,7 +26,7 @@
 24. `kubectl delete pod new-pod` ==> Delete a pod.
 25. `kubectl get deployments` ==> See deployments of a namespace.
 26. `kubectl get deployments --all-namespaces` ==> See all deployments in all namespaces.
-27. `kubectl scale deployment deployment-name -n namespace-name --replicas=3` => Scale up a deployment, there will be 3 pods of that deployment.
+27. `kubectl scale deployment deployment-name -n namespace-name --replicas=3` => Scale up a deployment upto 3 pods.
 28. `kubectl delete deployment deployment-name` ==> Delete a deployment.
 29. `kubectl get services` ==> List services in the default namespace.
 30. `kubectl get services --all-namespaces` ==> Services running in all namespaces.
