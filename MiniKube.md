@@ -22,10 +22,6 @@ Now in order to install Minikube, run the following commands:
 
 `minikube status`
 
-`sudo snap install kubectl --classic`
-
-`kubectl version --client`
-
 The Minikube is installed :)
 
 # How to Install kubectl?
@@ -37,6 +33,10 @@ The kubectl is a CLI used to interact with Kubernetes Clusters. We will use it t
 `curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -`
 
 `echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list`
+
+`sudo snap install kubectl --classic`
+
+`kubectl version --client`
 
 # Running few kubectl commands
 
