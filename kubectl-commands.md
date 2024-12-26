@@ -39,7 +39,7 @@
 37. `kubectl delete configmap my-configmap` ==> Delete a configmap.
 38. `kubectl get secrets` ==> The secrets of our K8s cluster.
 39. `kubectl get secrets --all-namespaces` ==> Secrets in all namespaces of a cluster.
-40. `kubectl create secret generic my-secret --from-literal=username=admin --from-literal=password=admin123` ==> It will create a new secret.
+40. `kubectl create secret generic my-secret --from-literal=username=admin --from-literal=password=admin123` ==> It'll create a new secret.
 41. `kubectl describe secret my-secret` ==> Details of our secret.
 42. `kubectl delete secret my-secret` ==> It will delete the secret.
 43. `kubectl delete all --all --namespace=my-namespace` ==> It will delete all resources in "my-namespace".
