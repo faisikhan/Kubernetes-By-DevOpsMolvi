@@ -21,5 +21,10 @@
 19. `kubectl describe pod new-pod` ==> More details of a pod.
 20. `kubectl logs new-pod` ==> Shares logs of a pod.
 21. `kubectl logs -f new-pod` ==> Live or stream logs of a pod.
-22. `kubectl exec -it <pod-name> -- /bin/bash ==> Access a pod using SSH.
-23. 
+22. `kubectl exec -it <pod-name> -- /bin/bash` ==> Access a pod using SSH.
+23. `kubectl run new-pod --image=alpine:latest ==> Run a new pod with an image of your choice.
+24. `kubectl delete pod new-pod` ==> Delete a pod.
+25. `kubectl get deployments` ==> See deployments of a namespace.
+26. `kubectl get deployments --all-namespaces` ==> See all deployments in all namespaces.
+27. `kubectl scale deployment deployment-name -n namespace-name --replicas=3` => Scale up a deployment, there will be 3 pods of that deployment.
+28. `kubectl delete deployment deployment-name` ==> Delete a deployment.
