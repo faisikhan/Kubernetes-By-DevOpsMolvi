@@ -19,4 +19,7 @@
 17. `kubectl get pods --all-namespaces` ==> Lists pods of all namespaces.
 18. `kubectl get pods -o wide` ==> Lists pods with more details.
 19. `kubectl describe pod new-pod` ==> More details of a pod.
-20. `
+20. `kubectl logs new-pod` ==> Shares logs of a pod.
+21. `kubectl logs -f new-pod` ==> Live or stream logs of a pod.
+22. `kubectl exec -it <pod-name> -- /bin/bash ==> Access a pod using SSH.
+23. 
