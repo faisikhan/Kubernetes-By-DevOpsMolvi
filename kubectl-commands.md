@@ -42,5 +42,11 @@
 40. `kubectl create secret generic my-secret --from-literal=username=admin --from-literal=password=admin123` ==> It will create a new secret.
 41. `kubectl describe secret my-secret` ==> Details of our secret.
 42. `kubectl delete secret my-secret` ==> It will delete the secret.
-43. 
-
+43. `kubectl delete all --all --namespace=my-namespace` ==> It will delete all resources in "my-namespace".
+44. `kubectl get pods --watch --all-namespaces` ==> Continuously monitor the status of pods in all namespaces.
+45. `kubectl get pods -A` ==> See pods in all namespaces, instead of using --all-namespaces, we can use -A as well.
+46. `kubectl get replicasets --all-namespaces` ==> Replicasets in all namespaces.
+47. `kubectl get daemonsets --all-namespaces` ==> Daemonsets in all namespaces.
+48. `kubectl get statefulsets --all-namespaces` ==> Statefulsets in all namespaces.
+49. `kubectl top nodes` ==> Get resource utilization of nodes.
+50. `kubectl top pods` ==> Get resource utilization of pods.
