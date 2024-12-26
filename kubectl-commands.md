@@ -14,4 +14,9 @@
 12. kubectl create namespace new-namespace ==> It will create a new namespace.
 13. kubectl config set-context --current --namespace=new-namespace ==> Set the default namespace as the new-namespace.
 14. kubectl delete namespace new-namespace ==> Delete the namespace.
-15. 
+15. kubectl get pods ==> List pods in the default namespace.
+16. kubectl get pods -n namespace_name ==> List pods of a specific namespace.
+17. kubectl get pods --all-namespaces ==> Lists pods of all namespaces.
+18. kubectl get pods -o wide ==> Lists pods with more details.
+19. kubectl describe pod new-pod ==> More details of a pod.
+20. 
