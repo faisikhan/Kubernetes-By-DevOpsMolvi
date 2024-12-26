@@ -56,3 +56,4 @@ The kubectl is a CLI used to interact with Kubernetes Clusters. We will use it t
 
 `kubectl get pods`
 
+
