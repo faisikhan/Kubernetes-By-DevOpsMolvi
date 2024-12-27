@@ -54,7 +54,7 @@ The kubectl is a CLI used to interact with Kubernetes Clusters. We will use it t
 
 `kubectl get deployment`
 
-`kubectl expose deployment my-nginx --port=80 --type=LoadBalancer`
+`kubectl expose deployment devops-web --port=80 --type=LoadBalancer`
 
 `kubectl get services`
 
