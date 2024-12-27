@@ -48,11 +48,15 @@ The kubectl is a CLI used to interact with Kubernetes Clusters. We will use it t
 
 `kubectl get pods`
 
-# Deploy NGINX web server on Minikube
+# Deploy NGINX web server on Minikube and access locally
 
 `kubectl create deployment devops-web --image=nginx:latest`
 
 `kubectl get deployment`
+
+`kubectl expose deployment my-nginx --port=80 --type=LoadBalancer`
+
+`kubectl get services`
 
 `kubectl get pods`
 
