@@ -28,6 +28,21 @@ Worker nodes are servers that run the workloads. Workload means containerized ap
 
 In simple words, the Kubernetes API Server is known as the Control Plane.
 
+## kubelet
+
+It is the main agent used for communication among the nodes, it should be installed on the master and all worker nodes.
+
+## kubeadm
+
+Simply we can say, it is the Kubernetes system administrator. It initializes and administer the cluster.
+
+## kubectl
+
+It is a Kubernetes tool that allows users to run the commands inside the Kubernetes clusters. It communicates with your API server. It can not modify or change the cluster settings. 
+
+## kubernetes-cni
+
+A Kubernetes tool for containers network and data exchange.
 
 1. mkdir $HOME/.kube
 2. cp -i k8s-escluster-kubeconfig.yaml $HOME/.kube/config
@@ -51,24 +66,8 @@ In simple words, the Kubernetes API Server is known as the Control Plane.
 ![image](https://github.com/faisikhan/kubernetes/assets/21220549/94469fda-160b-4e89-ab9f-fc839112054b)
 
 
-Good tutorial to install Kubernetes on Ubuntu:
-https://www.cloudsigma.com/how-to-install-and-use-kubernetes-on-ubuntu-20-04/
 
-## kubelet
 
-It is the main agent used for communication among the nodes, it should be installed on the master and all worker nodes.
-
-## kubeadm
-
-Simply we can say, it is the Kubernetes system administrator. It initializes and administer the cluster.
-
-## kubectl
-
-It is a Kubernetes tool that allows users to run the commands inside the Kubernetes clusters. It communicates with your API server. It can not modify or change the cluster settings. 
-
-## kubernetes-cni
-
-A Kubernetes tool for containers network and data exchange.
 
 1. Create a Kubernetes Cluster:
 
