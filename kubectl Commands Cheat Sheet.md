@@ -1,4 +1,4 @@
-# 50 Most Frequently Used kubectl commands for DevOps Engineers
+# 50 Most Frequently Used kubectl commands for DevOps Engineers [Part A]
 
 1. `kubectl help` ==> to get help and more information about any command.
 2. `kubectl cluster-info` ==> shares the K8s cluster information.
