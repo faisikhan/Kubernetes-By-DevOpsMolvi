@@ -1,3 +1,34 @@
+# Welcome to Kubernetes by DevOps Molvi
+
+This repository will have all the Kubernetes learning material that we'll discuss and learn together on my DevOps Molvi YouTube channel.
+
+By the way, I'll explain Kubernetes here but if you want to watch my Kubernetes Lectures, I'll list them out here:
+
+1. What is Kubernetes- https://youtu.be/iznUPUHChEc
+2. What is K8s Used for- https://youtu.be/ma6_i4XMYEc
+3. Kubernetes Architecture- https://youtu.be/gSGMD7X0neQ
+4. Kubernetes Cluster Deep Dive- https://youtu.be/LgmN3bDITwE
+5. Kubernetes Terminology- https://youtu.be/3wC7-cMUYDk
+6. How to Install MiniKube- https://youtu.be/DSNEBqLFLrk
+7. kubectl commands cheat sheet- https://youtu.be/9ROeiqi3UOQ
+
+# Kubernetes
+
+1. One of the most popular tools for container orchestration.
+2. A node means a server in Kubernetes.
+3. A cluster means a number of servers coupled together. In Kubernetes, there should be at least 2 nodes in a cluster:
+
+**i.  Master Node**
+It is the main node in Kubernetes which does the administration part, it runs **kubeadm**. Kubeadm performs the actions necessary to get a minimum viable cluster up and running quickly. 
+
+**ii. Worker Node**
+Worker nodes are servers that run the workloads. Workload means containerized apps running in the production.
+
+## Control Plane
+
+In simple words, the Kubernetes API Server is known as the Control Plane.
+
+
 1. mkdir $HOME/.kube
 2. cp -i k8s-escluster-kubeconfig.yaml $HOME/.kube/config
 3. chown $(id -u):$(id -g) $HOME/.kube/config
@@ -19,21 +50,6 @@
 
 ![image](https://github.com/faisikhan/kubernetes/assets/21220549/94469fda-160b-4e89-ab9f-fc839112054b)
 
-# Kubernetes
-
-1. One of the most popular tools for container orchestration.
-2. A node means a server in Kubernetes.
-3. A cluster means a number of servers coupled together. In Kubernetes, there should be at least 2 nodes in a cluster:
-
-**i.  Master Node**
-It is the main node in Kubernetes which does the administration part, it runs **kubeadm**. Kubeadm performs the actions necessary to get a minimum viable cluster up and running quickly. 
-
-**ii. Worker Node**
-Worker nodes are servers that run the workloads. Workload means containerized apps running in the production.
-
-## Control Plane
-
-In simple words, the Kubernetes API Server is known as the Control Plane.
 
 Good tutorial to install Kubernetes on Ubuntu:
 https://www.cloudsigma.com/how-to-install-and-use-kubernetes-on-ubuntu-20-04/
