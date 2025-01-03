@@ -1,5 +1,29 @@
 # How to Create a Kubernetes Cluster
 
+It is one of my favorite guide in which we are going to create a Kubernetes ourselves on a couple of Virtual Machines on our AWS account.
+
+In this Kubernetes Cluster, we'll have:
+
+1. One Master Node/Control Plane
+2. Two Worker Nodes
+
+It is upto you, if you want to have one master and one worker nodes.
+
+In the beginning, I'll have one master & one worker nodes and I'll join the 2nd worker node later so we can learn, how we can join additional worker nodes.
+
+## Step No.1 VPC on AWS
+
+1. First of all, we need to create a Virtual Private Cloud where we'll run all our VMs.
+2. We'll create a security group in that VPC.
+3. We've to allow the following ports in our security group 6443 for Kube-API server.
+
+## Step No.2 Create EC2 VMs
+
+1. We'll create 3 VMs in total, one VM would be our Master Node and the rest would be Worker Nodes.
+2. 
+
+
+
 ![image](https://user-images.githubusercontent.com/21220549/218764601-77bf10ec-15e9-4cad-9e76-781cb31ab315.png)
 
 sed -i '/swap/d' /etc/fstab
