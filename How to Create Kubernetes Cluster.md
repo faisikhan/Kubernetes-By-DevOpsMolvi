@@ -38,17 +38,17 @@ The above command will remove the swap entry from /etc/fstab as you can see the 
 
 After that we need to run the following commands to install Containerd:
 
-1. sudo apt-get update
-2. sudo apt install apt-transport-https curl
-3. sudo mkdir -p /etc/apt/keyrings
-4. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-5. echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null.
-6. sudo apt-get update
-7. sudo apt-get install containerd.io
-8. sudo mkdir -p /etc/containerd
-9. sudo containerd config default | sudo tee /etc/containerd/config.toml
-10. sudo nano /etc/containerd/config.toml [set SystemdCgroup = true]
-11. sudo systemctl restart containerd
+1. `sudo apt-get update`
+2. `sudo apt install apt-transport-https curl`
+3. `sudo mkdir -p /etc/apt/keyrings`
+4. `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg`
+5. `echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null.`
+6. `sudo apt-get update`
+7. `sudo apt-get install containerd.io`
+8. `sudo mkdir -p /etc/containerd`
+9. `sudo containerd config default | sudo tee /etc/containerd/config.toml`
+10. `sudo nano /etc/containerd/config.toml [set SystemdCgroup = true]`
+11. `sudo systemctl restart containerd`
 
 ====================================
 Containered Should be Installed Now
