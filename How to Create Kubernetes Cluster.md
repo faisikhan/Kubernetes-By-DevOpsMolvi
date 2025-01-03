@@ -4,31 +4,39 @@ It is one of my favorite guide in which we are going to create a Kubernetes ours
 
 In this Kubernetes Cluster, we'll have:
 
-1. One Master Node/Control Plane
-2. Two Worker Nodes
+1. One Master Node/Control Plane [8GB RAM, 2 CPUs]
+2. Two Worker Nodes [4GB RAM, 1 CPU each]
 
 It is upto you, if you want to have one master and one worker nodes.
 
 In the beginning, I'll have one master & one worker nodes and I'll join the 2nd worker node later so we can learn, how we can join additional worker nodes.
 
-## Step No.1 VPC on AWS
+
+### Step No.1 VPC on AWS
 
 1. First of all, we need to create a Virtual Private Cloud where we'll run all our VMs.
 2. We'll create a security group in that VPC.
 3. We've to allow the following ports in our security group 6443 for Kube-API server.
 
-## Step No.2 Create EC2 VMs
+
+### Step No.2 Create EC2 VMs
 
 1. We'll create 3 VMs in total, one VM would be our Master Node and the rest would be Worker Nodes.
-2. 
+2. The VMs must be created in the same VPC that we created above and the same security group.
 
+### Install Containered on the Master Node 
 
+Containered is the Container Runtime just like we have Docker or Podman and it is used to run containers in the Pods. So we are going to proceed with the installation of Containered.
+
+1. Run the following command.
+
+`sed -i '/swap/d' /etc/fstab`
+
+The above command will remove the swap entry from /etc/fstab as you can see the following image:
 
 ![image](https://user-images.githubusercontent.com/21220549/218764601-77bf10ec-15e9-4cad-9e76-781cb31ab315.png)
 
-sed -i '/swap/d' /etc/fstab
 
-The above command will remove the swap entry from /etc/fstab 
 
 The following tutorial will help to install containerd.
 
