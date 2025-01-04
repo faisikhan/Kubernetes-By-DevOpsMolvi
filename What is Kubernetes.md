@@ -12,7 +12,13 @@ By the way, I'll explain Kubernetes here but if you want to watch my Kubernetes 
 6. How to Install MiniKube- https://youtu.be/DSNEBqLFLrk
 7. kubectl commands cheat sheet- https://youtu.be/9ROeiqi3UOQ
 
-# Kubernetes
+## Google Docs
+
+If you want to download the lectures in the PDF format, here are the Google Drive Links:
+
+
+
+## Kubernetes
 
 1. One of the most popular tools for container orchestration.
 2. A node means a server in Kubernetes.
@@ -51,24 +57,25 @@ A Kubernetes tool for containers network and data exchange.
 
 ## Kubernetes Manifests
 
-/etc/kubernetes/manifests
+Kubernetes manifests are configuration files that describe the desired state of objects in a Kubernetes cluster. They are written in YAML.
 
--rw------- 1 root root 2392 Dec 19 04:02 etcd.yaml
--rw------- 1 root root 4009 Dec 19 04:02 kube-apiserver.yaml
--rw------- 1 root root 3520 Dec 19 04:02 kube-controller-manager.yaml
--rw------- 1 root root 1440 Dec 19 04:02 kube-scheduler.yaml
+After the successful installation of Kubernetes cluster, you can find this directory on the master node/control plane.
 
-1. kubectl config view
-2. kubectl get pods
-3. kubectl get pods my-pod-name
-4. kubectl get nodes  
+`/etc/kubernetes/manifests`
+
+`-rw------- 1 root root 2392 Dec 19 04:02 etcd.yaml`
+
+`-rw------- 1 root root 4009 Dec 19 04:02 kube-apiserver.yaml`
+
+`-rw------- 1 root root 3520 Dec 19 04:02 kube-controller-manager.yaml`
+
+`-rw------- 1 root root 1440 Dec 19 04:02 kube-scheduler.yaml`
+
+
 
 ![image](https://user-images.githubusercontent.com/21220549/208919735-bcd954e3-4c6d-448a-8973-470df9c9f424.png)
 
-1. kubectl create deployment my-deployment --image nginx:latest --port 8088    =============> A new deployment will be created with one replicaset.
-2. kubectl get deployment
-3. kubectl describe deployment my-deployment
+
 
 ![image](https://user-images.githubusercontent.com/21220549/208929979-579094e5-955c-46bf-8ceb-d8d6b3faadb9.png)
 
-4. kubectl delete deployment my-deployment    =============> It will delete the deployment.
