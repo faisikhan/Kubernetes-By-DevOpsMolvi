@@ -77,27 +77,27 @@ Containered Should be Installed Now....
 `EOF`
 
 21. `sysctl --system`
-22.  `kubeadm init --pod-network-cidr=10.0.0.0/16`
+22.  `kubeadm init --pod-network-cidr=10.244.0.0/16`
 
 ### KubeConfig Setup
 
-22. mkdir -p $HOME/.kube
-23. sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-24. sudo chown $(id -u):$(id -g) $HOME/.kube/config
-25. export KUBECONFIG=/path/to/cluster-config
+22. `mkdir -p $HOME/.kube`
+23. `sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config`
+24. `sudo chown $(id -u):$(id -g) $HOME/.kube/config`
+25. `export KUBECONFIG=/etc/kubernetes/admin.conf`
 
 ### Install Flannel Network Plugin
 
 Flannel is an open-source Container Network Interface (CNI) plugin that creates a virtual network for containers.
 
-26. kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+26. `kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml`
 
 ### Kubectl autocomplete
 
 Execute the following commands for kubectl autocomplete. It is strongly recommended for quick learning.
 
-1. source <(kubectl completion bash)
-2. echo "source <(kubectl completion bash)" >> ~/.bashrc
-3. alias k=kubectl
-4. complete -o default -F __start_kubectl k
-5. kubectl -A        ===========>    Used for appending --all-namespaces.
+1. `source <(kubectl completion bash)`
+2. `echo "source <(kubectl completion bash)" >> ~/.bashrc`
+3. `alias k=kubectl`
+4. `complete -o default -F __start_kubectl k`
+5. `kubectl -A`        ===========>    Used for appending --all-namespaces.
