@@ -9,12 +9,10 @@ You can follow the following basic steps to create a Managed Kubernetes Cluster 
 
 ![image](https://user-images.githubusercontent.com/21220549/208852432-6fbd8328-3566-4d20-91ad-786936263c74.png)
 
-If we select Zonal, the control plane [which manages the worker nodes and the Pods in the cluster] and nodes run in a single zone. We can select more replica zones, however, 
-it'll increase the costs. 
-
-Cluster region can not be changed once its created. By default, a regional cluster replicates the control plane and worker nodes across three zones.
-
-A node pools is a group of VMs, servers we can say in the same zone. In a single node pool, the number of nodes can be increased or decreased depending on the workload.
+1. If we select Zonal, the control plane [which manages the worker nodes and the Pods in the cluster] and nodes run in a single zone.
+2. We can select more replica zones, however, it'll increase the costs.
+3. Cluster region can not be changed once its created. By default, a regional cluster replicates the control plane and worker nodes across three zones.
+4. A node pools is a group of VMs, servers we can say in the same zone. In a single node pool, the number of nodes can be increased or decreased depending on the workload.
 
 ![image](https://user-images.githubusercontent.com/21220549/208858664-b5b5b9c0-50c6-49be-9277-6fa75d172a80.png)
 
