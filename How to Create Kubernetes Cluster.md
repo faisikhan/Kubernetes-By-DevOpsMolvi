@@ -75,6 +75,7 @@ Containered Should be Installed Now....
 `net.ipv4.ip_forward                 = 1`
 
 `EOF`
+
 21. `sysctl --system`
 22.  `kubeadm init --pod-network-cidr=10.0.0.0/16`
 
