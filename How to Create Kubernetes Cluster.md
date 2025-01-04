@@ -50,9 +50,9 @@ After that we need to run the following commands to install Containerd:
 10. `sudo nano /etc/containerd/config.toml [set SystemdCgroup = true]`
 11. `sudo systemctl restart containerd`
 
-===
-Containered Should be Installed Now
-===
+
+Containered Should be Installed Now....
+
 
 ### Install Kubernetes [kubeadm, kubelet, kubectl]
 
@@ -65,30 +65,7 @@ Containered Should be Installed Now
 19. `nano /proc/sys/net/ipv4/ip_forward [Edit entry in ip_forward file and change to 1 like sysctl -w net.ipv4.ip_forward=1]`
 20. `kubeadm init`
 
-![image](https://user-images.githubusercontent.com/21220549/221897582-a3a1fa58-fee1-40f1-8b71-c120a13928ce.png)
-
-This is for services to be accessible on my local windows system:
-![image](https://user-images.githubusercontent.com/21220549/222120187-937e3868-f39e-4837-929c-3ad141a3db5c.png)
-
-20. In order to list all the pods on master node:
-
-kubectl get pods --all-namespaces
-
-![image](https://user-images.githubusercontent.com/21220549/222126970-e70a4270-5c52-41b2-a37b-164a42ff5890.png)
-
-![image](https://user-images.githubusercontent.com/21220549/222368243-5afde9e1-97ff-4173-adb4-8405d661e12b.png)
-
-21. kubectl get nodes -o wide
-22. kubectl get pods --all-namespaces -o wide
-
-![image](https://user-images.githubusercontent.com/21220549/222374135-e2fc6717-06ad-4d4e-bd5c-0b19e03eefca.png)
-
-23. Create a simple Nginx pod with the following command:
-kubectl run nginx --image=nginx --restart=Never
-
-24. kubectl describe pod nginx        ===========>    It will show the details of our pod.
-
-## Kubectl autocomplete
+### Kubectl autocomplete
 
 Execute the following commands for kubectl autocomplete. It is strongly recommended for quick learning.
 
@@ -97,5 +74,3 @@ Execute the following commands for kubectl autocomplete. It is strongly recommen
 3. alias k=kubectl
 4. complete -o default -F __start_kubectl k
 5. kubectl -A        ===========>    Used for appending --all-namespaces.
-
-![image](https://user-images.githubusercontent.com/21220549/223702236-5d84944e-15d1-4ad1-91c1-aa7746585e63.png)
