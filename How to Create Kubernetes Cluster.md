@@ -53,6 +53,8 @@ After that we need to run the following commands to install Containerd:
 11. `sudo systemctl restart containerd`
 
 
+The purpose of setting SystemdCgroup = true in the config.toml file of containerd is to enable the use of systemd for managing cgroups (control groups) for containers.
+
 Containered Should be Installed Now....
 
 
