@@ -1,0 +1,130 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: StatefulSet
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"StatefulSet","metadata":{"annotations":{"kubernetes.digitalocean.com/firewall-managed":"false"},"name":"elasticsearch","namespace":"default"},"spec":{"replicas":6,"selector":{"matchLabels":{"app":"elasticsearch"}},"serviceName":"elasticsearch","template":{"metadata":{"labels":{"app":"elasticsearch"}},"spec":{"containers":[{"env":[{"name":"cluster.name","value":"Devops_escluster"},{"name":"network.host","value":"0.0.0.0"},{"name":"node.name","valueFrom":{"fieldRef":{"fieldPath":"metadata.name"}}},{"name":"discovery.seed_hosts","value":"elasticsearch-0.elasticsearch,elasticsearch-1.elasticsearch,elasticsearch-2.elasticsearch,elasticsearch-3.elasticsearch,elasticsearch-4.elasticsearch,elasticsearch-5.elasticsearch"},{"name":"cluster.initial_master_nodes","value":"elasticsearch-0,elasticsearch-1,elasticsearch-2,elasticsearch-3,elasticsearch-4,elasticsearch-5"},{"name":"ES_JAVA_OPTS","value":"-Xms3g -Xmx3g"},{"name":"xpack.security.enabled","value":"true"},{"name":"ELASTIC_USERNAME","value":"elastic"},{"name":"ELASTIC_PASSWORD","value":"DkIedPPSCb"},{"name":"http.cors.enabled","value":"true"},{"name":"http.cors.allow-origin","value":"*"},{"name":"http.cors.allow-methods","value":"OPTIONS, HEAD, GET, POST, PUT, DELETE"},{"name":"http.cors.allow-headers","value":"Authorization,X-Requested-With,X-Auth-Token,Content-Type,Content-Length"},{"name":"http.cors.allow-credentials","value":"true"}],"image":"sysadmins1/esclusterk8","name":"elasticsearch","ports":[{"containerPort":9200,"name":"rest","protocol":"TCP"},{"containerPort":9300,"name":"inter-node","protocol":"TCP"}]}],"initContainers":[{"image":"busybox","name":"fix-permissions","securityContext":{"privileged":true}},{"command":["sysctl","-w","vm.max_map_count=262144"],"image":"busybox","name":"increase-vm-max-map","securityContext":{"privileged":true}},{"command":["sh","-c","ulimit -n 65536"],"image":"busybox","name":"increase-fd-ulimit","securityContext":{"privileged":true}}]}}}}
+      kubernetes.digitalocean.com/firewall-managed: "false"
+    creationTimestamp: "2023-07-16T14:59:43Z"
+    generation: 2
+    name: elasticsearch
+    namespace: default
+    resourceVersion: "43462898"
+    uid: d9d378b2-fe57-433f-9f48-5a5ee9dbc2e9
+  spec:
+    podManagementPolicy: OrderedReady
+    replicas: 6
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: elasticsearch
+    serviceName: elasticsearch
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: elasticsearch
+      spec:
+        containers:
+        - env:
+          - name: cluster.name
+            value: Devops_escluster
+          - name: network.host
+            value: 0.0.0.0
+          - name: node.name
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: discovery.seed_hosts
+            value: elasticsearch-0.elasticsearch,elasticsearch-1.elasticsearch,elasticsearch-2.elasticsearch,elasticsearch-3.elasticsearch,elasticsearch-4.elasticsearch,elasticsearch-5.elasticsearch
+          - name: cluster.initial_master_nodes
+            value: elasticsearch-0,elasticsearch-1,elasticsearch-2,elasticsearch-3,elasticsearch-4,elasticsearch-5
+          - name: ES_JAVA_OPTS
+            value: -Xms3g -Xmx3g
+          - name: xpack.security.enabled
+            value: "true"
+          - name: ELASTIC_USERNAME
+            value: elastic
+          - name: ELASTIC_PASSWORD
+            value: DkIedPPSCb
+          - name: http.cors.enabled
+            value: "true"
+          - name: http.cors.allow-origin
+            value: '*'
+          - name: http.cors.allow-methods
+            value: OPTIONS, HEAD, GET, POST, PUT, DELETE
+          - name: http.cors.allow-headers
+            value: Authorization,X-Requested-With,X-Auth-Token,Content-Type,Content-Length
+          - name: http.cors.allow-credentials
+            value: "true"
+          image: sysadmins1/esclusterk8
+          imagePullPolicy: Always
+          name: elasticsearch
+          ports:
+          - containerPort: 9200
+            name: rest
+            protocol: TCP
+          - containerPort: 9300
+            name: inter-node
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        initContainers:
+        - image: busybox
+          imagePullPolicy: Always
+          name: fix-permissions
+          resources: {}
+          securityContext:
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - command:
+          - sysctl
+          - -w
+          - vm.max_map_count=262144
+          image: busybox
+          imagePullPolicy: Always
+          name: increase-vm-max-map
+          resources: {}
+          securityContext:
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - command:
+          - sh
+          - -c
+          - ulimit -n 65536
+          image: busybox
+          imagePullPolicy: Always
+          name: increase-fd-ulimit
+          resources: {}
+          securityContext:
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    updateStrategy:
+      rollingUpdate:
+        partition: 0
+      type: RollingUpdate
+  status:
+    availableReplicas: 6
+    collisionCount: 0
+    currentReplicas: 6
+    currentRevision: elasticsearch-55f497f77c
+    observedGeneration: 2
+    readyReplicas: 6
+    replicas: 6
+    updateRevision: elasticsearch-55f497f77c
+    updatedReplicas: 6
+kind: List
+metadata:
+  resourceVersion: ""
