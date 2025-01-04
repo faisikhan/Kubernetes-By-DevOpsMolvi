@@ -33,26 +33,3 @@ We can see that the control plane node and the worker nodes are in the same zone
 Go to the kubectl option, you will see the exec ====> nginx-1. We will be connected to the pod.
 
 ![image](https://user-images.githubusercontent.com/21220549/208887844-5858d393-cc24-40b7-8f43-53786efef183.png)
-
-### 3. Migration using Anthos
-
-Moves your current workloads/apps to GCP Kubernetes. The workloads can be on your physical datacenter or other cloud providers like Azure and AWS.
-
-That's how the process should work while we use the migration using Anthos:
-
-![image](https://user-images.githubusercontent.com/21220549/208912157-916b3bc1-efcb-4d5e-b9bb-62921ca8ac8b.png)
-
-I won't be going into the details, but "migctl" command is used to migrate the workloads to Anthos.
-
-![image](https://user-images.githubusercontent.com/21220549/208914811-ffd68784-b73a-46b1-87a7-d852e4600db0.png)
-
-
-![image](https://user-images.githubusercontent.com/21220549/208919735-bcd954e3-4c6d-448a-8973-470df9c9f424.png)
-
-1. kubectl create deployment my-deployment --image nginx:latest --port 8088    =============> A new deployment will be created with one replicaset.
-2. kubectl get deployment
-3. kubectl describe deployment my-deployment
-
-![image](https://user-images.githubusercontent.com/21220549/208929979-579094e5-955c-46bf-8ceb-d8d6b3faadb9.png)
-
-4. kubectl delete deployment my-deployment    =============> It will delete the deployment.
