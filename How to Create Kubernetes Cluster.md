@@ -66,9 +66,17 @@ Containered Should be Installed Now....
 16. `sudo apt install -y kubelet kubeadm kubectl`
 17. `sudo apt-mark hold kubelet kubeadm kubectl`
 18. `modprobe br_netfilter`
-19. `cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf net.bridge.bridge-nf-call-iptables  = 1 net.bridge.bridge-nf-call-ip6tables = 1 net.ipv4.ip_forward = 1 EOF`
-20. `sysctl --system`
-21.  `kubeadm init --pod-network-cidr=10.0.0.0/16`
+19. `cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf`
+
+`net.bridge.bridge-nf-call-iptables  = 1`
+
+`net.bridge.bridge-nf-call-ip6tables = 1`
+
+`net.ipv4.ip_forward                 = 1`
+
+`EOF`
+21. `sysctl --system`
+22.  `kubeadm init --pod-network-cidr=10.0.0.0/16`
 
 ### KubeConfig Setup
 
