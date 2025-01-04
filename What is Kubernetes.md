@@ -15,7 +15,8 @@ By the way, I'll explain Kubernetes here but if you want to watch my Kubernetes 
 ## Google Docs
 
 If you want to download the lectures in the PDF format, here are the Google Drive Links:
-
+1. K8s Cluster Deep Dive: https://docs.google.com/presentation/d/1AaMttCRap-j1NwC8d6wWeXzOTKY0YI6ZtyAKwu6ZsIg/edit?usp=sharing
+2. Kubernetes Terminology: https://docs.google.com/presentation/d/1m1ab6W8Z0-iTukfqvHnwEx5ijwVLiAueuzc6ybSa5bg/edit?usp=sharing
 
 
 ## Kubernetes
@@ -50,11 +51,6 @@ It is a Kubernetes tool that allows users to run the commands inside the Kuberne
 
 A Kubernetes tool for containers network and data exchange.
 
-
-![image](https://github.com/faisikhan/kubernetes/assets/21220549/94469fda-160b-4e89-ab9f-fc839112054b)
-
-
-
 ## Kubernetes Manifests
 
 Kubernetes manifests are configuration files that describe the desired state of objects in a Kubernetes cluster. They are written in YAML.
@@ -70,12 +66,3 @@ After the successful installation of Kubernetes cluster, you can find this direc
 `-rw------- 1 root root 3520 Dec 19 04:02 kube-controller-manager.yaml`
 
 `-rw------- 1 root root 1440 Dec 19 04:02 kube-scheduler.yaml`
-
-
-
-![image](https://user-images.githubusercontent.com/21220549/208919735-bcd954e3-4c6d-448a-8973-470df9c9f424.png)
-
-
-
-![image](https://user-images.githubusercontent.com/21220549/208929979-579094e5-955c-46bf-8ceb-d8d6b3faadb9.png)
-
