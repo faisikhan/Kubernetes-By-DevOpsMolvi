@@ -28,6 +28,8 @@ In the beginning, I'll have one master & one worker nodes and I'll join the 2nd 
 
 Containerd is the Container Runtime just like we have Docker or Podman and it is used to run containers in the Pods. So we are going to proceed with the installation of Containered.
 
+Now there is really a very important concept that we must know about Swap memory and we have to disable it. The reason of disabling swap memory is that Kubernetes relies on predictable memory usage for scheduling pods efficiently, and swap can make it difficult to accurately calculate the memory requirements of a pod. Therefore, it is recommended to disable to the swap memory to avoid any performance degradation issues.
+
 Run the following command to remove the swap entry.
 
 `sed -i '/swap/d' /etc/fstab`
