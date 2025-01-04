@@ -44,70 +44,10 @@ It is a Kubernetes tool that allows users to run the commands inside the Kuberne
 
 A Kubernetes tool for containers network and data exchange.
 
-1. mkdir $HOME/.kube
-2. cp -i k8s-escluster-kubeconfig.yaml $HOME/.kube/config
-3. chown $(id -u):$(id -g) $HOME/.kube/config
-4. kubectl config view
-5. kubectl exec -it elasticsearch-0 -- /bin/bash
-6. kubectl delete pods --all -n faisal-elasticsearch --force
-7. kubectl delete statefulsets es-cluster --namespace=faisal-elasticsearch
-8. kubectl rollout status sts/es-cluster --namespace=faisal-elasticsearch
-9. kubectl get pvc -n faisal-elasticsearch
-10. kubectl get all --all-namespaces -o yaml > all-resources.yaml
-11. kubectl get svc -n faisal-es
-12. kubectl describe svc -n faisal-es elasticsearch
-13. kubectl apply -f es-main-cluster.yaml -n faisal-es
-14. watch kubectl get pods -n faisal-es
-15. curl -X GET -k -u elastic:password http://139.59.160.220:30315
-16. curl -X DELETE -k -u elastic:password http://139.59.160.220:30315/vfront_bm_escluster_5_*
-17. curl -X DELETE -k -u elastic:password http://elasticsearch.tm8.co.uk:30414/vsupm2_escluster_1_url_rewrite_*
-
 
 ![image](https://github.com/faisikhan/kubernetes/assets/21220549/94469fda-160b-4e89-ab9f-fc839112054b)
 
 
-
-
-
-1. Create a Kubernetes Cluster:
-
-![image](https://user-images.githubusercontent.com/21220549/208852432-6fbd8328-3566-4d20-91ad-786936263c74.png)
-
-If we select Zonal, the control plane [which manages the worker nodes and the Pods in the cluster] and nodes run in a single zone. We can select more replica zones, however, it'll increase the costs. 
-
-Cluster region can not be changed once its created. By default, a regional cluster replicates the control plane and worker nodes across three zones.
-
-A node pools is a group of VMs, servers we can say in the same zone. In a single node pool, the number of nodes can be increased or decreased depending on the workload.
-
-![image](https://user-images.githubusercontent.com/21220549/208858664-b5b5b9c0-50c6-49be-9277-6fa75d172a80.png)
-
-**With the default maximum of 110 Pods per node for Standard clusters, Kubernetes assigns a /24 CIDR block (256 addresses) to each of the nodes.**
-
-![image](https://user-images.githubusercontent.com/21220549/208859009-c2f96986-fe95-4aa6-bce4-c96450da375f.png)
-
-The cluster has been created with 3-nodes in one zone.
-
-![image](https://user-images.githubusercontent.com/21220549/208883877-588d77ff-af39-4d37-8d4e-fd68632ba3a6.png)
-
-We can see that the control plane node and the worker nodes are in the same zone. 
-
-## Attach to a Pod
-
-Go to the kubectl option, you will see the exec ====> nginx-1. We will be connected to the pod.
-
-![image](https://user-images.githubusercontent.com/21220549/208887844-5858d393-cc24-40b7-8f43-53786efef183.png)
-
-## Migrate for Anthos
-
-Moves your current workloads/apps to GCP Kubernetes. The workloads can be on your physical datacenter or other cloud providers like Azure and AWS.
-
-That's how the process should work while we use the migration using Anthos:
-
-![image](https://user-images.githubusercontent.com/21220549/208912157-916b3bc1-efcb-4d5e-b9bb-62921ca8ac8b.png)
-
-I won't be going into the details, but "migctl" command is used to migrate the workloads to Anthos.
-
-![image](https://user-images.githubusercontent.com/21220549/208914811-ffd68784-b73a-46b1-87a7-d852e4600db0.png)
 
 ## Kubernetes Manifests
 
