@@ -5,11 +5,11 @@ It is one of my favorite guide in which we are going to create a Kubernetes ours
 In this Kubernetes Cluster, we'll have:
 
 1. One Master Node/Control Plane [8GB RAM, 2 CPUs]
-2. Two Worker Nodes [4GB RAM, 1 CPU each]
+2. One Worker Node [4GB RAM, 1 CPU each]
 
-It is upto you, if you want to have one master and one worker nodes.
+It is upto you, if you want to have one master and more worker nodes.
 
-In the beginning, I'll have one master & one worker nodes and I'll join the 2nd worker node later so we can learn, how we can join additional worker nodes.
+In the beginning, I'll have one master & one worker node and we'll learn how we can join the worker node with the master node.
 
 
 ### Step No.1 VPC on AWS
@@ -66,8 +66,26 @@ Containered Should be Installed Now....
 16. `sudo apt install -y kubelet kubeadm kubectl`
 17. `sudo apt-mark hold kubelet kubeadm kubectl`
 18. `modprobe br_netfilter`
-19. `nano /proc/sys/net/ipv4/ip_forward [Edit entry in ip_forward file and change to 1 like sysctl -w net.ipv4.ip_forward=1]`
-20. `kubeadm init`
+19. `cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-iptables  = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward                 = 1
+EOF`
+20. `sysctl --system`
+21.  `kubeadm init --pod-network-cidr=10.0.0.0/16`
+
+### KubeConfig Setup
+
+22. mkdir -p $HOME/.kube
+23. sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+24. sudo chown $(id -u):$(id -g) $HOME/.kube/config
+25. export KUBECONFIG=/path/to/cluster-config
+
+### Install Flannel Network Plugin
+
+Flannel is an open-source Container Network Interface (CNI) plugin that creates a virtual network for containers.
+
+26. kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 
 ### Kubectl autocomplete
 
