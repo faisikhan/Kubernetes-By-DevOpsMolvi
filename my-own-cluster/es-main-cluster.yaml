@@ -2,10 +2,10 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: es-cluster
-  namespace: faisal-es
+  namespace: devopsmolvi-elasticsearch
 spec:
   serviceName: es-cluster
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: es-cluster
@@ -94,4 +94,4 @@ spec:
       storageClassName: do-block-storage
       resources:
         requests:
-          storage: 10Gi
+          storage: 5Gi
