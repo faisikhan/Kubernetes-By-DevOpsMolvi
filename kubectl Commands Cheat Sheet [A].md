@@ -1,5 +1,8 @@
 # 50 Most Frequently Used kubectl commands for DevOps Engineers [Part A]
 
+Kubectl is a command-line tool that allows users to interact with Kubernetes clusters. Kubectl is used to deploy applications, manage & monitor cluster resources.
+
+
 1. `kubectl help` ==> to get help and more information about any command.
 2. `kubectl cluster-info` ==> shares the K8s cluster information.
 3. `kubectl cluster-info dump` ==> for troubleshooting K8s cluster issues, we'll get logs.
