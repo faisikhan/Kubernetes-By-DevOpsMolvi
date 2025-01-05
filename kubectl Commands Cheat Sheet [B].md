@@ -12,7 +12,8 @@ Kubectl is a command-line tool that allows users to interact with Kubernetes clu
 8. `kubectl get svc -n devopsmolvi-elasticsearch` ==> Gets the information about services in the devopsmolvi-elasticsearch namespace.
 9. `kubectl describe svc -n devopsmolvi-elasticsearch es-cluster` ==> It will share more details about the "my-es-service" service.
 10. `kubectl apply -f es-main-cluster.yaml -n devopsmolvi-elasticsearch` ==> It will apply the configuration specified in the es-main-cluster.yaml file.
-11. `watch kubectl get pods -n devopsmolvi-elasticsearch` ==> This command is used to monitor the pods after their deployment. 
+11. `watch kubectl get pods -n devopsmolvi-elasticsearch` ==> This command is used to monitor the pods after their deployment.
+12. `kubectl scale statefulset es-cluster --replicas=3` ==> It will scale up the statefulset to 3 replicas.
 
 
 
