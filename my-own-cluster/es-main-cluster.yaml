@@ -91,7 +91,7 @@ spec:
         app: es-service
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: do-block-storage
+      storageClassName: standard
       resources:
         requests:
           storage: 5Gi
