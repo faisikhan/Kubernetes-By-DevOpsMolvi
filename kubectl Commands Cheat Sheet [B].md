@@ -2,7 +2,7 @@
 
 Kubectl is a command-line tool that allows users to interact with Kubernetes clusters. Kubectl is used to deploy applications, manage & monitor cluster resources.
 
-1. `kubectl config view` ==> Lists all clusters for which kubeconfig entries have been generated
+1. `kubectl config view` ==> To view your current Kubernetes configurations.
 2. `kubectl exec -it elasticsearch-0 -- /bin/bash` ==> Connect with elasticsearch-0 pod using SSH.
 3. `kubectl delete pods --all -n devopsmolvi-elasticsearch --force` ==> Deletes all pods forcefully in the devopsmolvi-elasticsearch namespace.
 4. `kubectl delete statefulsets es-cluster --namespace=devopsmolvi-elasticsearch` ==> The StatefulSet es-cluster will be deleted from the devopsmolvi-elasticsearch namespace.
