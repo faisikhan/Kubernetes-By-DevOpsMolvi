@@ -92,6 +92,14 @@ Flannel is an open-source Container Network Interface (CNI) plugin that creates 
 
 26. `kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml`
 
+We are done with the Master Node.
+
+### Worker Node
+
+Just like we did install Containerd, Kubeadm, Kubelet and Kubectl on the master node, we have to install these packages on the worker node as well. There is an important point to remember that we don't have to run kubeadm init on the worker node, instead we have to run kubeadm join to join the worker node with the master node to create a Kubernetes cluster. The command should look like:
+
+`kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>`
+
 ### Kubectl autocomplete
 
 Execute the following commands for kubectl autocomplete. It is strongly recommended for quick learning.
