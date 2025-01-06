@@ -77,7 +77,7 @@ Containered Should be Installed Now....
 `EOF`
 
 21. `sysctl --system`
-22.  `kubeadm init --pod-network-cidr=10.244.0.0/16`
+22.  `kubeadm init --pod-network-cidr=10.244.0.0/16` ==> Run this command only on Master node.
 
 ### KubeConfig Setup
 
