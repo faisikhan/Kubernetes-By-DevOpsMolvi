@@ -109,3 +109,69 @@ Execute the following commands for kubectl autocomplete. It is strongly recommen
 3. `alias k=kubectl`
 4. `complete -o default -F __start_kubectl k`
 5. `kubectl -A`        ===========>    Used for appending --all-namespaces.
+
+### Deploying a simple NGINX pod
+
+1. The first step is to create a deployment.yaml file and paste the following configuration:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+
+Run `kubectl apply -f deployment.yaml` to create the deployment.
+
+  2. Now create a service.yaml file and paste the following configuration.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30080
+  type: NodePort
+
+  Run `kubectl apply -f service.yaml` to create the service.
+
+We should have a pod running on our worker node and we can run `kubectl get pods` to confirm.
+
+  3. Install NGINX on the worker node with `apt install nginx`
+  4. Open the following configuration file and paste the give configuration `sudo nano /etc/nginx/sites-available/default`
+
+server {
+    listen 80;
+    server_name IP_here;  
+
+    location / {
+        proxy_pass http://localhost:Node_Port;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+Replace the IP and NodePort and Restart NGINX and check in the browser. Should work :) 
