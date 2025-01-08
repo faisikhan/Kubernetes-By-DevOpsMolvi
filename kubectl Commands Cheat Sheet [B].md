@@ -21,10 +21,11 @@ Kubectl is a command-line tool that allows users to interact with Kubernetes clu
 17. `kubectl get pv my-pv-name -o wide` ==> It'll share some more details about the volume.
 18. `kubectl get pv my-pv-name -o json` ==> This command will share the output of the PersistentVolume in JSON format.
 19. `kubectl get pv my-pv-name -o yaml | grep -i storageClass` ==> Shares the storage class of the volume.
-20. `kubectl delete pv my-pv-name` ==> It'll delete the volume, we have to give the name of the volume.
-21. `kubectl delete pv --all` ==> It will delete all PersistentVolumes, you should run it on your MiniKube cluster to learn it.
-22. `kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>` ==> Kubeadm command to join the worker nodes with the master node in a K8s cluster.
-23. `kubeadm token create --print-join-command` ==> Creates a new token if we forgot the older one.
-
-
-
+20. `kubectl edit pv my-pv-name` ==> If we want to modify the volume specifications.
+21. `kubectl edit pv` ==> We can edit all Persistent Volumes at once, the changes effect immediately after saving.
+22. `kubectl delete pv my-pv-name` ==> It'll delete the volume, we have to give the name of the volume.
+23. `kubectl delete pv --all` ==> It will delete all PersistentVolumes, you should run it on your MiniKube cluster to learn it.
+24. `kubectl get pvc -A` ==> Lists all the PersistentVolumeClaims in all namespaces.
+25. `kubectl get roles` ==> 
+26. `kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>` ==> Kubeadm command to join the worker nodes with the master node in a K8s cluster.
+27. `kubeadm token create --print-join-command` ==> Creates a new token if we forgot the older one.
