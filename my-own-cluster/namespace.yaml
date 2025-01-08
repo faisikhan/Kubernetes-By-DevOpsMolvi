@@ -1,4 +1,4 @@
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: devopsmolvi-elasticsearch
+kind: Namespace               # Defines the type of resource as a Namespace
+apiVersion: v1                # Specifies the API version for the resource
+metadata:                     # Metadata provides details about the resource
+  name: devopsmolvi-elasticsearch  # Unique name for the Namespace
