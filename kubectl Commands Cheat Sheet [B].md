@@ -14,6 +14,9 @@ Kubectl is a command-line tool that allows users to interact with Kubernetes clu
 10. `kubectl apply -f es-main-cluster.yaml -n devopsmolvi-elasticsearch` ==> It will apply the configuration specified in the es-main-cluster.yaml file.
 11. `watch kubectl get pods -n devopsmolvi-elasticsearch` ==> This command is used to monitor the pods after their deployment.
 12. `kubectl scale statefulset es-cluster --replicas=3` ==> It will scale up the statefulset to 3 replicas.
+13. `kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>` ==> Kubeadm command to join the worker nodes with the master node in a K8s cluster.
+14. `kubeadm token create --print-join-command` ==> Creates a new token if we forgot the older one.
+15. 
 
 
 
