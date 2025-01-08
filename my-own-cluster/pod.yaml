@@ -1,8 +1,8 @@
 apiVersion: v1                # Specifies the API version for the Pod
 kind: Pod                     # Defines the resource type as a Pod
 metadata:                     # Metadata provides details about the Pod
-  name: es-pod                # Name of the Pod
-  namespace: default          # Namespace where the Pod will be created
+  name: elasticsearch-pod               # Name of the Pod
+  namespace: devopsmolvi-elasticsearch          # Namespace where the Pod will be created
   labels:                     # Labels to categorize and identify the Pod
     app: elasticsearch        # Label key-value pair
 spec:                         # Specification for the Pod
