@@ -26,6 +26,9 @@ Kubectl is a command-line tool that allows users to interact with Kubernetes clu
 22. `kubectl delete pv my-pv-name` ==> It'll delete the volume, we have to give the name of the volume.
 23. `kubectl delete pv --all` ==> It will delete all PersistentVolumes, you should run it on your MiniKube cluster to learn it.
 24. `kubectl get pvc -A` ==> Lists all the PersistentVolumeClaims in all namespaces.
-25. `kubectl get roles` ==> 
-26. `kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>` ==> Kubeadm command to join the worker nodes with the master node in a K8s cluster.
-27. `kubeadm token create --print-join-command` ==> Creates a new token if we forgot the older one.
+25. `kubectl get roles` ==> List all Roles in the current namespace.
+26. `kubectl get clusterroles` ==> List all ClusterRoles
+27. `kubectl describe role my-role-name` ==> See the details of a specific role.
+28. `kubectl describe clusterrole cluster-role-name` ==> See more details of the cluster role.
+29. `kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>` ==> Kubeadm command to join the worker nodes with the master node in a K8s cluster.
+30. `kubeadm token create --print-join-command` ==> Creates a new token if we forgot the older one.
