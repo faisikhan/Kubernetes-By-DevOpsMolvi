@@ -14,9 +14,17 @@ Kubectl is a command-line tool that allows users to interact with Kubernetes clu
 10. `kubectl apply -f es-main-cluster.yaml -n devopsmolvi-elasticsearch` ==> It will apply the configuration specified in the es-main-cluster.yaml file.
 11. `watch kubectl get pods -n devopsmolvi-elasticsearch` ==> This command is used to monitor the pods after their deployment.
 12. `kubectl scale statefulset es-cluster --replicas=3` ==> It will scale up the statefulset to 3 replicas.
-13. `kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>` ==> Kubeadm command to join the worker nodes with the master node in a K8s cluster.
-14. `kubeadm token create --print-join-command` ==> Creates a new token if we forgot the older one.
-15. 
+13. `kubectl get sc` ==> Lists the type of the storage class like for example, standard.
+14. `kubectl describe storageclass standard` ==> To see the details of the standard storage class.
+15. `kubectl get pv` ==> pv stands for PersistenVolumes and this command lists all persistent volumes.
+16. `kubectl describe pv my-pv-name` ==> We'll get more details about the Persistent Volume.
+17. `kubectl get pv my-pv-name -o wide` ==> It'll share some more details about the volume.
+18. `kubectl get pv my-pv-name -o json` ==> This command will share the output of the PersistentVolume in JSON format.
+19. `kubectl get pv my-pv-name -o yaml | grep -i storageClass` ==> Shares the storage class of the volume.
+20. `kubectl delete pv my-pv-name` ==> It'll delete the volume, we have to give the name of the volume.
+21. `kubectl delete pv --all` ==> It will delete all PersistentVolumes, you should run it on your MiniKube cluster to learn it.
+22. `kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>` ==> Kubeadm command to join the worker nodes with the master node in a K8s cluster.
+23. `kubeadm token create --print-join-command` ==> Creates a new token if we forgot the older one.
 
 
 
