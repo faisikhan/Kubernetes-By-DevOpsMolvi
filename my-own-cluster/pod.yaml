@@ -1,0 +1,39 @@
+apiVersion: v1                # Specifies the API version for the Pod
+kind: Pod                     # Defines the resource type as a Pod
+metadata:                     # Metadata provides details about the Pod
+  name: es-pod                # Name of the Pod
+  namespace: default          # Namespace where the Pod will be created
+  labels:                     # Labels to categorize and identify the Pod
+    app: elasticsearch        # Label key-value pair
+spec:                         # Specification for the Pod
+  containers:                 # Defines the containers in the Pod
+  - name: elasticsearch       # Name of the container
+    image: elasticsearch:7.10.0 # Elasticsearch image and version
+    imagePullPolicy: Always   # Always pull the image before starting the container
+    ports:                    # Ports exposed by the container
+    - containerPort: 9200     # Port for REST API
+      name: rest              # Identifier for the REST API port
+      protocol: TCP           # Protocol used (TCP)
+    - containerPort: 9300     # Port for inter-node communication
+      name: inter-node        # Identifier for inter-node communication
+      protocol: TCP           # Protocol used (TCP)
+    resources:                # Resource requests and limits
+      requests:               # Minimum resources required
+        memory: "1Gi"         # Request 1 GiB of memory
+        cpu: "500m"           # Request 0.5 CPU
+      limits:                 # Maximum resources allowed
+        memory: "2Gi"         # Limit memory to 2 GiB
+        cpu: "1"              # Limit CPU to 1
+    volumeMounts:             # Mounts volumes into the container
+    - name: es-data           # Name of the volume to mount
+      mountPath: /usr/share/elasticsearch/data # Path where data is stored
+    env:                      # Environment variables for the container
+    - name: discovery.type    # Elasticsearch discovery mode
+      value: single-node      # Set discovery mode to single-node for testing
+    - name: cluster.name      # Elasticsearch cluster name
+      value: es-cluster       # Name of the Elasticsearch cluster
+    - name: network.host      # Network host binding
+      value: 0.0.0.0          # Bind to all network interfaces
+  volumes:                    # Volumes available to the Pod
+  - name: es-data             # Name of the volume
+    emptyDir: {}              # Creates an empty directory volume (temporary storage)
