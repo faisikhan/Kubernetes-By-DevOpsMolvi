@@ -1,97 +1,98 @@
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: es-cluster
-  namespace: devopsmolvi-elasticsearch
-spec:
-  serviceName: es-cluster
-  replicas: 2
-  selector:
-    matchLabels:
-      app: es-cluster
-  template:
-    metadata:
-      labels:
-        app: es-cluster
-    spec:
-      containers:
-      - name: es-container
-        image: sysadmins1/esclusterk8
-        imagePullPolicy: Always
-        resources:
-            limits:
-              cpu: 1000m
-            requests:
-              cpu: 100m
-        ports:
-        - containerPort: 9200
-          name: rest
-          protocol: TCP
-        - containerPort: 9300
-          name: inter-node
-          protocol: TCP
-        volumeMounts:
-        - name: data
-          mountPath: /usr/share/elasticsearch/data
-        env:
-          - name: cluster.name
-            value: Managed-ES-Cluster
-          - name: network.host
-            value: 0.0.0.0
-          - name: node.name
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.name
-          - name: discovery.seed_hosts
+apiVersion: apps/v1                # Specifies the API version for StatefulSet
+kind: StatefulSet                  # Defines the resource type as a StatefulSet
+metadata:                          # Metadata provides details about the StatefulSet
+  name: es-cluster                 # Name of the StatefulSet
+  namespace: devopsmolvi-elasticsearch  # Namespace for resource isolation
+spec:                              # Specification for the StatefulSet
+  serviceName: es-cluster          # Headless Service managing the pods
+  replicas: 2                      # Number of pod replicas to maintain
+  selector:                        # Selector to match pods
+    matchLabels:                   # Labels to identify pods
+      app: es-cluster              # Label key-value pair
+  template:                        # Template for creating new pods
+    metadata:                      # Metadata for the pods
+      labels:                      # Labels assigned to the pods
+        app: es-cluster            # Label key-value pair
+    spec:                          # Specification for the pod
+      containers:                  # Defines containers for the StatefulSet
+      - name: es-container         # Name of the container
+        image: sysadmins1/esclusterk8  # Elasticsearch container image
+        imagePullPolicy: Always    # Always pull the image when starting
+        resources:                 # Resource requests and limits
+          limits:                  # Maximum resources allowed
+            cpu: 1000m             # 1 CPU limit
+          requests:                # Minimum resources required
+            cpu: 100m              # 0.1 CPU request
+        ports:                     # Container ports exposed
+        - containerPort: 9200      # Port for REST API
+          name: rest               # Name identifier for the REST API port
+          protocol: TCP            # Protocol used for this port
+        - containerPort: 9300      # Port for inter-node communication
+          name: inter-node         # Name identifier for the inter-node port
+          protocol: TCP            # Protocol used for this port
+        volumeMounts:              # Mounts volumes into the container
+        - name: data               # Name of the volume
+          mountPath: /usr/share/elasticsearch/data  # Path to mount the volume
+        env:                       # Environment variables for the container
+          - name: cluster.name            # Cluster name
+            value: Managed-ES-Cluster     # Name of the Elasticsearch cluster
+          - name: network.host            # Network host binding
+            value: 0.0.0.0                # Bind to all network interfaces
+          - name: node.name               # Name of the Elasticsearch node
+            valueFrom:                    # Derived dynamically
+              fieldRef:                   # Reference to the pod metadata
+                fieldPath: metadata.name  # Use pod's name as the node name
+          - name: discovery.seed_hosts    # Hosts for initial cluster discovery
             value: es-cluster-0.es-cluster,es-cluster-1.es-cluster,es-cluster-2.es-cluster
-          - name: cluster.initial_master_nodes
+          - name: cluster.initial_master_nodes  # Initial master nodes
             value: es-cluster-0,es-cluster-1,es-cluster-2
-          - name: ES_JAVA_OPTS
-            value: -Xms512m -Xmx512m
-          - name: xpack.security.enabled
+          - name: ES_JAVA_OPTS            # Java heap size settings
+            value: -Xms512m -Xmx512m     # Set min and max heap size to 512MB
+          - name: xpack.security.enabled # Disable security for testing
             value: "false"
-          - name: ELASTIC_USERNAME
+          - name: ELASTIC_USERNAME       # Elasticsearch admin username
             value: elastic
-          - name: ELASTIC_PASSWORD
+          - name: ELASTIC_PASSWORD       # Elasticsearch admin password
             value: nm43k342hfjed
-          - name: http.cors.enabled
+          - name: http.cors.enabled      # Enable CORS for REST API
             value: "true"
-          - name: http.cors.allow-origin
+          - name: http.cors.allow-origin # Allow requests from any origin
             value: '*'
-          - name: http.cors.allow-methods
+          - name: http.cors.allow-methods # HTTP methods allowed
             value: OPTIONS, HEAD, GET, POST, PUT, DELETE
-          - name: http.cors.allow-headers
+          - name: http.cors.allow-headers # HTTP headers allowed
             value: Authorization,X-Requested-With,X-Auth-Token,Content-Type,Content-Length
-          - name: http.cors.allow-credentials
+          - name: http.cors.allow-credentials # Allow credentials in CORS
             value: "true"
 
-      initContainers:
-      - name: fix-permissions
-        image: busybox
-        command: ["sh", "-c", "chown -R 1000:1000 /usr/share/elasticsearch/data"]
-        securityContext:
-          privileged: true
-        volumeMounts:
+      initContainers:              # Initialization tasks before starting containers
+      - name: fix-permissions      # Container to fix permissions for data directory
+        image: busybox             # Busybox image for lightweight operations
+        command: ["sh", "-c", "chown -R 1000:1000 /usr/share/elasticsearch/data"] # Command to fix permissions
+        securityContext:           # Security context for the container
+          privileged: true         # Runs with elevated privileges
+        volumeMounts:              # Volume to fix permissions on
         - name: data
           mountPath: /usr/share/elasticsearch/data
-      - name: increase-vm-max-map
-        image: busybox
-        command: ["sysctl", "-w", "vm.max_map_count=262144"]
+      - name: increase-vm-max-map  # Container to increase max virtual memory
+        image: busybox             # Busybox image
+        command: ["sysctl", "-w", "vm.max_map_count=262144"] # Command to update VM settings
         securityContext:
           privileged: true
-      - name: increase-fd-ulimit
+      - name: increase-fd-ulimit   # Container to increase file descriptor limit
         image: busybox
-        command: ["sh", "-c", "ulimit -n 65536"]
+        command: ["sh", "-c", "ulimit -n 65536"] # Command to increase FD limit
         securityContext:
           privileged: true
-  volumeClaimTemplates:
-  - metadata:
-      name: data
-      labels:
-        app: es-service
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: standard
-      resources:
+
+  volumeClaimTemplates:            # Defines persistent storage for each pod
+  - metadata:                      # Metadata for the volume claim
+      name: data                   # Name of the volume claim
+      labels:                      # Labels for the volume claim
+        app: es-service            # Label key-value pair
+    spec:                          # Specification for the volume claim
+      accessModes: [ "ReadWriteOnce" ]  # Access mode for the volume
+      storageClassName: standard   # Storage class for the volume
+      resources:                   # Resource requests for the volume
         requests:
-          storage: 5Gi
+          storage: 5Gi             # Request 5Gi of storage
