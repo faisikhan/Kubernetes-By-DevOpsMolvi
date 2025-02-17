@@ -1,0 +1,19 @@
+kind: Service                    # Defines the resource type as a Service
+apiVersion: v1                   # Specifies the API version for the Service
+metadata:                        # Metadata provides details about the Service
+  name: es-cluster               # Name of the Service
+  namespace: devopsmolvi-elasticsearch  # Namespace for resource isolation
+  labels:                        # Labels to categorize and identify the Service
+    app: es-cluster              # Label key-value pair
+spec:                            # Specification for the Service
+  selector:                      # Specifies how to select the pods for this Service
+    app: es-cluster              # Matches pods with this label
+  type: NodePort                 # Exposes the Service externally via a NodePort
+  ports:                         # Defines the ports exposed by the Service
+    - port: 9200                 # External port for accessing the service (REST API)
+      targetPort: 9200           # Port on the pod to forward traffic to
+      nodePort: 30315            # NodePort to access the service on cluster nodes
+      protocol: TCP              # Protocol for the port (TCP by default)
+      name: rest                 # Name identifier for this port (REST API)
+    - port: 9300                 # External port for internal communication (inter-node)
+      name: inter-node           # Name identifier for this port (inter-node communication)
