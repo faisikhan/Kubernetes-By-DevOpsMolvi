@@ -66,3 +66,7 @@ After the successful installation of Kubernetes cluster, you can find this direc
 `-rw------- 1 root root 3520 Dec 19 04:02 kube-controller-manager.yaml`
 
 `-rw------- 1 root root 1440 Dec 19 04:02 kube-scheduler.yaml`
+
+I have sepearate lectures on all the Kubernetes Components on my YouTube Channel. You can watch out and learn about the K8s components, K8s Architecture, running MiniKube locally and KubeCtl commands in the following playlist:
+
+https://www.youtube.com/playlist?list=PLARN6pPQDqr68qeorB_VUOulKYi6G0LKJ
