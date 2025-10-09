@@ -8,7 +8,7 @@ metadata:                     # Metadata provides details about the Pod
 spec:                         # Specification for the Pod
   containers:                 # Defines the containers in the Pod
   - name: elasticsearch       # Name of the container
-    image: elasticsearch:7.10.0 # Elasticsearch image and version
+    image: sysadmins1/esclusterk8 # Elasticsearch image and version
     imagePullPolicy: Always   # Always pull the image before starting the container
     ports:                    # Ports exposed by the container
     - containerPort: 9200     # Port for REST API
