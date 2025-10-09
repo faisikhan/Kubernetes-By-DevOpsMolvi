@@ -16,7 +16,7 @@ spec:                              # Specification for the StatefulSet
     spec:                          # Specification for the pod
       containers:                  # Defines containers for the StatefulSet
       - name: es-container         # Name of the container
-        image: sysadmins1/esclusterk8  # Elasticsearch container image
+        image: elasticsearch:9.1.5  # Elasticsearch container image
         imagePullPolicy: Always    # Always pull the image when starting
         resources:                 # Resource requests and limits
           limits:                  # Maximum resources allowed
