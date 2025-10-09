@@ -60,7 +60,7 @@ items:
             value: Authorization,X-Requested-With,X-Auth-Token,Content-Type,Content-Length
           - name: http.cors.allow-credentials
             value: "true"
-          image: sysadmins1/esclusterk8
+          image: elasticsearch:9.1.5
           imagePullPolicy: Always
           name: elasticsearch
           ports:
