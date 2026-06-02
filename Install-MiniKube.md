@@ -30,7 +30,7 @@ The kubectl is a CLI used to interact with Kubernetes Clusters. We will use it t
 
 `sudo apt install -y apt-transport-https ca-certificates curl`
 
-`curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -`
+`curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg`
 
 `echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list`
 
