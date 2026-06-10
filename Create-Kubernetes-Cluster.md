@@ -165,22 +165,6 @@ Run `kubectl apply -f service.yaml` to create the service.
 
 We should have a pod running on our worker node and we can run `kubectl get pods` to confirm.
 
-3. Install NGINX on the worker node with `apt install nginx`
-4. Open the following configuration file and paste the given configuration `sudo nano /etc/nginx/sites-available/default`
-
-```nginx
-server {
-    listen 80;
-    server_name IP_here;  
-
-    location / {
-        proxy_pass http://localhost:Node_Port;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-```
+http://IP_here:30080/
 
 Replace the IP and NodePort and Restart NGINX and check in the browser. Should work :)
