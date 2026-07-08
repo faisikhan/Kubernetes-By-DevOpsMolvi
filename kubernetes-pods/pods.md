@@ -1,6 +1,7 @@
 Nginx
 
 `kubectl run nginx-pod --image=nginx --port=80`
+
 `kubectl port-forward nginx-pod 8080:80`
 
 MySQL
