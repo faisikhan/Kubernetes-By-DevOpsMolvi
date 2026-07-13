@@ -45,6 +45,7 @@ kubectl scale deployment/web-app --replicas=8
 kubectl get pods -l app=web-app
 ```
 ## Port Forward
-``kubectl port-forward deployment/api-deployment 8080:5678
+```
+kubectl port-forward deployment/api-deployment 8080:5678
 curl localhost:8080
 ```
