@@ -22,3 +22,19 @@ minikube service nginx-nodeport --url
 minikube ip
 curl http://<minikube-ip>:30080
 ```
+## Load Balancer Lab Commands
+
+```
+kubectl apply -f loadbalancer-service.yaml
+kubectl get svc nginx-loadbalancer   # EXTERNAL-IP will show <pending> on Minikube, keep that in mind
+
+# Minikube workaround to simulate LoadBalancer behavior
+
+minikube tunnel   # run in a separate terminal, keep it open
+kubectl get svc nginx-loadbalancer   # now shows an external IP
+
+# DNS Resolution
+
+kubectl run tmp-curl --image=curlimages/curl -it --rm -- curl http://nginx-clusterip.default.svc.cluster.local 
+
+```
